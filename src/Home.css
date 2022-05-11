@@ -1,0 +1,47 @@
+.home{
+    display: flex;
+    margin: 20px;
+}
+.home__section{
+    display: flex;
+    margin: 20px;
+        flex-direction: column;
+        width: 100%;
+}
+.home__inputContainer{
+    width: 50%;
+    margin: 10px;
+}
+.home__marks{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+        width: 100%;
+}
+.home__row{
+        display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    align-items: center;
+    text-align: left;
+}
+.home__colIndex{
+    flex: 0.1;
+}
+
+.home__col{
+    flex: 0.3;
+    text-align: center;
+}
+
+.home__col > Input{
+        width: 50%;
+    height: 30px;
+    outline: none;
+    border: solid 1px #9f9d9d;
+    border-radius: 5px;
+}
+.home__button{
+    display: flex;
+    flex-direction: row-reverse;
+}
