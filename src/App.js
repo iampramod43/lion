@@ -6,6 +6,7 @@ import Home from './Home'
 import React from 'react'
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Result from './Result';
 
 function App() {
   
@@ -18,6 +19,7 @@ function App() {
             <Route path="/login" element = {<Login/>} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/home" element={<Home />} />
+            <Route path="/result" element={<Result />} />
           </Routes>
       </header>
       </div>

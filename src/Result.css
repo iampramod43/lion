@@ -1,0 +1,25 @@
+.result{
+    display: flex;
+    flex-direction: column;
+}
+
+.result__header{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 20px;
+}
+
+.result__inputContainer{
+        flex: 0.2;
+        margin: 0 10px;
+}
+
+.result__subjectMarks{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.result__subjects{
+    display: flex;
+    justify-content: space-evenly;
+}
