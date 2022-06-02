@@ -25,6 +25,7 @@ function Result() {
   const [month, setMonth] = React.useState('');
   const [shift, setShift] = React.useState('');
   const [result, setResult] = React.useState([]);
+  const [subjects, setSubjects] = React.useState([]);
 const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const [branchList, setBranchList] = React.useState([]);
@@ -79,6 +80,12 @@ React.useEffect(() => {
             finalResult: res.finalResult
           }
         });
+        const subjects = result[0].marks.map(res => {
+          return {
+            name: res.subject.code,
+          }
+        });
+        setSubjects(subjects);
         setResult(result);
 
       }
@@ -206,14 +213,21 @@ React.useEffect(() => {
                 <TableCell>REG No</TableCell>
                 <TableCell align="center">Name</TableCell>
                 <div className="result__subjects">
-                  <TableCell align="center">Subject 1</TableCell>
+                  {
+                    subjects.map(subject => {
+                      return <TableCell align="center" key={subject.name}>{subject.name}</TableCell>
+                    }
+                    )
+                  }
+                </div>
+                  {/* <TableCell align="center">row.marks[0].</TableCell>
                   <TableCell align="center">Subject 2</TableCell>
                   <TableCell align="center">Subject 3</TableCell>
                   <TableCell align="center">Subject 4</TableCell>
                   <TableCell align="center">Subject 5</TableCell>
                   <TableCell align="center">Subject 6</TableCell>
                   <TableCell align="center">Subject 7</TableCell>
-                </div>
+                </div> */}
                 <TableCell align="center">Total</TableCell>
                 <TableCell align="center">Final Result</TableCell>
               </TableRow>
@@ -231,8 +245,8 @@ React.useEffect(() => {
                     <TableCell align="center">{row.marks[2]?.cie || '--'} <br/>{row.marks[2]?.see || '--'} </TableCell>
                     <TableCell align="center">{row.marks[3]?.cie || '--'} <br/>{row.marks[3]?.see || '--'} </TableCell>
                     <TableCell align="center">{row.marks[4]?.cie || '--'} <br/>{row.marks[4]?.see || '--'} </TableCell>
-                    <TableCell align="center">{row.marks[5]?.cie || '--'} <br/>{row.marks[5]?.see || '--'} </TableCell>
-                    <TableCell align="center">{row.marks[6]?.cie || '--'} <br/>{row.marks[6]?.see || '--'} </TableCell>
+                    {/* <TableCell align="center">{row.marks[5]?.cie || '--'} <br/>{row.marks[5]?.see || '--'} </TableCell>
+                    <TableCell align="center">{row.marks[6]?.cie || '--'} <br/>{row.marks[6]?.see || '--'} </TableCell> */}
                   </div>
                   <TableCell align="center">{row.total}</TableCell>
                   <TableCell align="center">{row.finalResult}</TableCell>

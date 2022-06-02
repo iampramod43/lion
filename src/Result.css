@@ -16,8 +16,11 @@
 
 .result__subjectMarks{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
 }
+/* .result__subjectMarks > .MuiTableCell-root {
+    width: 100px;
+} */
 
 .result__subjects{
     display: flex;
