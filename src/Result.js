@@ -205,6 +205,7 @@ React.useEffect(() => {
           <Button variant="contained" color="primary" onClick={handleSubmit} type="submit">Submit</Button>
         </div>
       </div>
+      {result && 
       <div className="result__table">
         <TableContainer >
           <Table className="result__table" aria-label="simple table">
@@ -220,14 +221,6 @@ React.useEffect(() => {
                     )
                   }
                 </div>
-                  {/* <TableCell align="center">row.marks[0].</TableCell>
-                  <TableCell align="center">Subject 2</TableCell>
-                  <TableCell align="center">Subject 3</TableCell>
-                  <TableCell align="center">Subject 4</TableCell>
-                  <TableCell align="center">Subject 5</TableCell>
-                  <TableCell align="center">Subject 6</TableCell>
-                  <TableCell align="center">Subject 7</TableCell>
-                </div> */}
                 <TableCell align="center">Total</TableCell>
                 <TableCell align="center">Final Result</TableCell>
               </TableRow>
@@ -240,11 +233,16 @@ React.useEffect(() => {
                   </TableCell>
                   <TableCell align="center">{row.name}</TableCell>
                   <div className="result__subjectMarks">
-                    <TableCell align="center">{row.marks[0]?.cie || '--'} <br/>{row.marks[0]?.see || '--'} </TableCell>
+                      {
+                        subjects.map((subject, i) => { 
+                          return <TableCell align="center" key={i}>{row.marks[i]?.cie || '--'} <br />{row.marks[i]?.see || '--'}</TableCell>
+                        })
+                   }
+                      {/* <TableCell align="center">{row.marks[0]?.cie || '--'} <br />{row.marks[0]?.see || '--'} </TableCell>
                     <TableCell align="center">{row.marks[1]?.cie || '--'} <br/>{row.marks[1]?.see || '--'} </TableCell>
                     <TableCell align="center">{row.marks[2]?.cie || '--'} <br/>{row.marks[2]?.see || '--'} </TableCell>
                     <TableCell align="center">{row.marks[3]?.cie || '--'} <br/>{row.marks[3]?.see || '--'} </TableCell>
-                    <TableCell align="center">{row.marks[4]?.cie || '--'} <br/>{row.marks[4]?.see || '--'} </TableCell>
+                    <TableCell align="center">{row.marks[4]?.cie || '--'} <br/>{row.marks[4]?.see || '--'} </TableCell> */}
                     {/* <TableCell align="center">{row.marks[5]?.cie || '--'} <br/>{row.marks[5]?.see || '--'} </TableCell>
                     <TableCell align="center">{row.marks[6]?.cie || '--'} <br/>{row.marks[6]?.see || '--'} </TableCell> */}
                   </div>
@@ -265,6 +263,8 @@ React.useEffect(() => {
           onRowsPerPageChange={handleChangeRowsPerPage}
         />
       </div>
+      }
+      {!result.length && <div className="result__noResult">No Result Found</div>}
     </div>
   )
 }
