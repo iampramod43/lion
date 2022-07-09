@@ -7,7 +7,7 @@ import React from 'react'
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Result from './Result';
-
+import Student from './Student';
 function App() {
   
   return (
@@ -20,6 +20,7 @@ function App() {
             <Route path="/signup" element={<Signup />} />
             <Route path="/home" element={<Home />} />
             <Route path="/result" element={<Result />} />
+            <Route path="/student" element={<Student />} />
           </Routes>
       </header>
       </div>
